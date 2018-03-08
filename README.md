@@ -22,14 +22,19 @@ Eject the SD card and insert it to PC/Mac again.
 It will show up as Boot external drive
 - Double click to open / right click open 
 - create a file name wpa_supplicant.conf 
-- Copy paste the below code and save file (NOTE: the file has to be place in SD card and when it's boots 1st time it will auto configure you Pi Wi-Fi)
-'''
-> ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-> update_config=1
-> country=US
+- Copy paste the below code and save file (NOTE: the file has to be place in SD card and when it's boots 1st time it will auto configure you Pi Wi-Fi):
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
 
-> network={
->     ssid="your wi-fi name"
->     psk="wi-fi password"
-> }
-'''
+network={
+    ssid="your wi-fi name"
+    psk="wi-fi password"
+    }
+```
+Save the changes and Eject the SD card
+Insert the SD card in Raspberry Pi and Boot it ( this should work on all versions of Pi) - I tested with Pi3, Zero
+Raspberry Pi should boot up and connects to your network. To see it's connected to your network goto 192.168.1.1 your router network URL.
+
+At this point, need to connect Monitor and keyboard just to enable ssh in raspi-config after then good to go without headless
