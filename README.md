@@ -1,29 +1,28 @@
-# raspi-headless-ros-c9
-The below steps will help you to setup raspberry pi with raspbian-lite headless (no UI) and connects to your WI-FI on initial boot and then update SSH permissions in raspi-config.
+# Raspbian Jessie with ROS and Cloud9 IDE
+The below steps are to setup raspberry pi with raspbian-lite headless (no UI) and connects to your WI-FI, SSH enabled on initial boot.
 
-## Preparing Raspberry pi headness installation
+## Preparing Raspberry pi headless installation
 ### Download raspbian lite from below link
 http://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-07-05/
 
 ### Writing an image to the SD card
-You will need to use an image writing tool to install the image you have downloaded on your SD card.
+Use an image writing tool to write image on SD card.
 
-https://etcher.io/
+Download [Etcher](https://etcher.io/)
 Etcher is a graphical SD card writing tool that works on Mac OS, Linux and Windows, and is the easiest option for most users. Etcher also supports writing images directly from the zip file, without any unzipping required. To write your image with Etcher:
 
-Download Etcher and install it.
-Connect an SD card reader with the SD card inside.
-Open Etcher and select from your hard drive the Raspberry Pi .img or  .zip file you wish to write to the SD card.
-Select the SD card you wish to write your image to.
-Review your selections and click 'Flash!' to begin writing data to the SD card.
+- Connect a SD card reader with the SD card inside.
+- Open Etcher and select from your hard drive the Raspberry Pi .img or  .zip file you wish to write to the SD card.
+- Select the SD card you wish to write your image to.
+- Review your selections and click 'Flash!' to begin writing data to the SD card.
 
 ### Prepare Wi-Fi settings (don't boot Pi yet)
-Eject the SD card and insert it to PC/Mac again. 
-It will show up as Boot external drive
-- Double click to open / right click open
+Eject the SD card and insert it back into PC/Mac again. 
+It will show up as `Boot` external drive
+- Double click to open / mouse right click open
 - create a file named as `ssh` without any file extension and save it in SD Card
-- create another file and name it as `wpa_supplicant.conf` (make sure file extension is `.conf`)
-- Copy paste the below code and save file
+- create another file and named as `wpa_supplicant.conf` (make sure file extension is `.conf`)
+- Copy paste the below code, put your wifi name, password and save file
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -35,14 +34,15 @@ network={
     }
 ```
 `NOTE: the file has to be place in SD card and when it's boots 1st time it will auto configure you Pi Wi-Fi and ssh enable`
-- Save the changes and Eject the SD card
+> Save the changes and Eject the SD card
 
 Insert the SD card in Raspberry Pi and Boot it ( this should work on all versions of Pi) - I tested with Pi3, Zero
-Raspberry Pi should boot up and connects to your network. To see it's connected to your network goto 192.168.1.1 your router network URL.
+Raspberry Pi should boot up and connects to your network. To see it's connected to your network open browser, goto 192.168.1.1 your router network URL.
 
 At this point, you should be able to login to Pi without any keyboard and monitor connected to it. `yay!!!!`
 
-## Install ROS (Robotics Operating Systems) Framework (only for Raspbian Jessie)
+## Install ROS (Robotics Operating Systems) Framework 
+###(only for Raspbian Jessie)
 Here are the detailed steps in to [install ROS](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi). However, let us do a quick run through again.
 ### Steps to install
 ```
@@ -84,4 +84,29 @@ $ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 ROS Installation complete.
 
 ## C9SDK installation 
-We all know how hard and easy to use IDEs are. I really like nano editor that built it and comes with Linux. However, won't it be great to use a really good IDE like c9 where you can open all files in one view, update them parallel, auto intendation, etc...
+We all know how hard and easy to use IDEs are. I really like nano editor that built it and comes with Linux. However, won't it be great to use a really good IDE like c9 where you can open all files in one view, update them parallel, auto indentation, etc... which boosts productivity and coding efficiency.
+
+To get started with we need to install
+- npm
+- nodejs
+- C9Core/SDK (cloud9 git repo)
+
+Installing npm and nodejs
+```
+$ sudo apt-get install npm
+$ wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
+$ sudo dpkg -i node_latest_armhf.deb
+
+git clone/download c9 repo, build and install [steps](https://github.com/c9/core)
+```
+$ git clone git://github.com/c9/core.git c9sdk
+$ cd c9sdk
+$ scripts/install-sdk.sh
+
+c9 Installation complete
+
+Launch IDE and access it from an system connected to your wi-fi by trying this command.
+```
+$ node server.js -p 5100 -l 0.0.0.0 -a pi:rasoberry -w ~
+```
+Now visit `http://raspberryPi:5100/ide.html` in web browser to load Cloud9.
