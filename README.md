@@ -42,7 +42,8 @@ Raspberry Pi should boot up and connects to your network. To see it's connected 
 At this point, you should be able to login to Pi without any keyboard and monitor connected to it. `yay!!!!`
 
 ## Install ROS (Robotics Operating Systems) Framework 
-###(only for Raspbian Jessie)
+### (only for Raspbian Jessie)
+
 Here are the detailed steps in to [install ROS](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi). However, let us do a quick run through again.
 ### Steps to install
 ```
@@ -81,7 +82,7 @@ $ source /opt/ros/kinetic/setup.bash
 $ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc 
 ```
 
-ROS Installation complete.
+> ROS Installation complete.
 
 ## C9SDK installation 
 We all know how hard and easy to use IDEs are. I really like nano editor that built it and comes with Linux. However, won't it be great to use a really good IDE like c9 where you can open all files in one view, update them parallel, auto indentation, etc... which boosts productivity and coding efficiency.
@@ -96,14 +97,15 @@ Installing npm and nodejs
 $ sudo apt-get install npm
 $ wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
 $ sudo dpkg -i node_latest_armhf.deb
-
+```
 git clone/download c9 repo, build and install [steps](https://github.com/c9/core)
 ```
 $ git clone git://github.com/c9/core.git c9sdk
 $ cd c9sdk
 $ scripts/install-sdk.sh
+```
 
-c9 Installation complete
+> c9 Installation complete
 
 Launch IDE and access it from an system connected to your wi-fi by trying this command.
 ```
