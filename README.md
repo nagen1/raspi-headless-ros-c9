@@ -35,7 +35,8 @@ network={
 `NOTE: the file has to be place in SD card and when it's boots 1st time it will auto configure you Pi Wi-Fi and ssh enable`
 > Save the changes and Eject the SD card
 
-Insert the SD card in Raspberry Pi and Boot it ( this should work on all versions of Pi) - I tested with Pi3, Zero
+Insert the SD card in Raspberry Pi and Boot it ( this should work on all versions of Pi) - I tested with Pi3, Zero.
+
 Raspberry Pi should boot up and connects to your network. To see it's connected to your network open browser, goto 192.168.1.1 your router network URL.
 
 At this point, you should be able to login to Pi without any keyboard and monitor connected to it. `yay!!!!`
