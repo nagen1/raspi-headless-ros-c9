@@ -68,13 +68,18 @@ $ sudo make install
 $ cd ~/ros_catkin_ws
 ```
 ```$ rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie ```
-If this fails or throws error message try below. should work.
 
-```$ rosdep install --from-paths src --ignore-src --rosdistro kinetic -y```
+If this fails or throws error message try below. 
+
+```$ rosdep install --from-paths src --ignore-src --rosdistro kinetic -y``` 
+
 Countiue....
-```$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic -j2
+
+```
+$ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic -j2
 $ source /opt/ros/kinetic/setup.bash
-$ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc ```
+$ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc 
+```
 
 ROS Installation complete.
 
