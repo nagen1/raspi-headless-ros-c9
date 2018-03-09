@@ -94,9 +94,8 @@ To get started with we need to install
 
 Installing npm and nodejs
 ```
-$ sudo apt-get install npm
-$ wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
-$ sudo dpkg -i node_latest_armhf.deb
+$ curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
+$ sudo yum -y install nodejs
 ```
 git clone/download c9 repo, build and install [steps](https://github.com/c9/core)
 ```
