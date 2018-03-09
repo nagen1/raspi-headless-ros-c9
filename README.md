@@ -92,7 +92,7 @@ To get started with we need to install
 - nodejs
 - C9Core/SDK (cloud9 git repo)
 
-Installing npm and nodejs
+Installing [nodejs](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 ```
 $ curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
 $ sudo yum -y install nodejs
