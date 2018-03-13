@@ -99,7 +99,7 @@ $ sudo yum -y install nodejs
 ```
 git clone/download c9 repo, build and install [steps](https://github.com/c9/core)
 ```
-$ git clone git://github.com/c9/core.git c9sdk
+$ git clone https://github.com/c9/core.git c9sdk
 $ cd c9sdk
 $ scripts/install-sdk.sh
 ```
